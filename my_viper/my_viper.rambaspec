@@ -9,7 +9,7 @@ license: MIT
 code_files:
 # View
 - {name: ViewController.swift, path: Code/viewcontroller.swift.liquid}
-- {name: ViewController.storyboard, path: Code/viewcontroller.storyboard.liquid}
+- {name: .storyboard, path: Code/viewcontroller.storyboard.liquid}
 
 # Presenter
 - {name: Presenter.swift, path: Code/presenter.swift.liquid}
@@ -18,5 +18,5 @@ code_files:
 - {name: Interactor.swift, path: Code/interactor.swift.liquid}
 
 # Scene
-- {name: Scene.swift, path: Code/scene.swift.liquid}
-- {name: SceneAssembler.swift, path: Code/sceneassembler.swift.liquid}
+- {name: .swift, path: Code/scene.swift.liquid}
+- {name: _SceneAssembler.extension.swift, path: Code/sceneassembler.swift.liquid}
