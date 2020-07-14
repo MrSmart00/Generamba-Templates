@@ -5,9 +5,9 @@ import UIKit
 import Combine
 import Common
 
-final class {{ module_info.name }}ViewController: UIViewController, Injectable {
+final class {{ module_info.name }}ViewController: UIViewController, {{ module_info.name }}View, Injectable {
     struct Dependency {
-        let presenter: {{ module_info.name }}PresenterProtocol
+        let presenter: {{ module_info.name }}Presentation
     }
 
     private var dependency: Dependency!

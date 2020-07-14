@@ -3,14 +3,14 @@
 import Foundation
 import Combine
 
-final class {{ module_info.name }}Presenter: {{ module_info.name }}PresenterProtocol {
+final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation {
     private let context: {{ module_info.name }}.Context
-    private let interactor: {{ module_info.name }}InteractorProtocol
+    private let interactor: {{ module_info.name }}Usecase
     private let wireframeClosure: ({{ module_info.name }}.Wireframe) -> Void
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(context: {{ module_info.name }}.Context, interactor: {{ module_info.name }}InteractorProtocol, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) {
+    init(context: {{ module_info.name }}.Context, interactor: {{ module_info.name }}Usecase, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) {
         self.context = context
         self.interactor = interactor
         self.wireframeClosure = wireframeClosure

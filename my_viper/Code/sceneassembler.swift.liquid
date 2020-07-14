@@ -6,7 +6,7 @@ import Common
 
 extension SceneAssembler {
 
-    static func {{ module_info.name }}(context: {{ module_info.name }}.Context, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) -> (Environment) -> UIViewController { // swiftlint:disable:this identifier_name line_length
+    static func {{ module_info.name | downcase }}(context: {{ module_info.name }}.Context, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) -> (Environment) -> {{ module_info.name }}View {
         return { environment in
             let controller = Storyboard<{{ module_info.name }}ViewController>(name: "{{ module_info.name }}").instantiate()
 // TODO: inject presenter to {{ module_info.name }}ViewController

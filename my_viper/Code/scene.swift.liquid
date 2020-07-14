@@ -1,6 +1,6 @@
 {% include 'header' %}
 
-import Foundation
+import UIKit
 
 enum {{ module_info.name }} {
     public struct Context {
@@ -12,7 +12,7 @@ enum {{ module_info.name }} {
     }
 }
 
-protocol {{ module_info.name }}InteractorProtocol {
+protocol {{ module_info.name }}Usecase {
 
 }
 
@@ -20,6 +20,10 @@ public enum {{ module_info.name }}Message {
 
 }
 
-protocol {{ module_info.name }}PresenterProtocol {
+protocol {{ module_info.name }}Presentation {
     func dispatch(_ message: {{ module_info.name }}Message)
+}
+
+protocol {{ module_info.name }}View: UIViewController {
+
 }
