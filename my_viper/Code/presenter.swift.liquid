@@ -4,6 +4,8 @@ import Foundation
 import Combine
 
 final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation {
+    var state: CurrentValueSubject<{{ module_info.name }}.State, Never> = .init(.initial)
+
     private let context: {{ module_info.name }}.Context
     private let interactor: {{ module_info.name }}Usecase
     private let wireframeClosure: ({{ module_info.name }}.Wireframe) -> Void
@@ -16,7 +18,7 @@ final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation 
         self.wireframeClosure = wireframeClosure
     }
 
-    func dispatch(_ message: {{ module_info.name }}Message) {
+    func dispatch(_ message: {{ module_info.name }}.Message) {
         // TODO: Impl with combine
     }
 }

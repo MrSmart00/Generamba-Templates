@@ -1,27 +1,38 @@
 {% include 'header' %}
 
 import UIKit
+import Combine
 
 enum {{ module_info.name }} {
     public struct Context {
         public init() {}
+        // TODO: Add properties for Presenter initialization
     }
 
     public enum Wireframe {
+        // TODO: Add trigger for view transition
+    }
 
+    public struct State {
+        static var initial: State {
+            .init()
+        }
+        // TODO: Add property for view layouts
+    }
+
+    public enum Message {
+        // TODO: Add view events for dispatch via presenter
     }
 }
 
 protocol {{ module_info.name }}Usecase {
-
-}
-
-public enum {{ module_info.name }}Message {
-
+    // TODO: Add function for data fetch from Server
 }
 
 protocol {{ module_info.name }}Presentation {
-    func dispatch(_ message: {{ module_info.name }}Message)
+    var state: CurrentValueSubject<{{ module_info.name }}.State, Never> { get }
+
+    func dispatch(_ message: {{ module_info.name }}.Message)
 }
 
 protocol {{ module_info.name }}View: UIViewController {
