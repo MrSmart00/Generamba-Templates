@@ -4,23 +4,19 @@ import UIKit
 import Combine
 
 enum {{ module_info.name }} {
-    public struct Context {
-        public init() {}
+    struct Context {
         // TODO: Add properties for Presenter initialization
     }
 
-    public enum Wireframe {
+    enum Wireframe {
         // TODO: Add trigger for view transition
     }
 
-    public struct State {
-        static var initial: State {
-            .init()
-        }
+    struct State {
         // TODO: Add property for view layouts
     }
 
-    public enum Message {
+    enum Event {
         // TODO: Add view events for dispatch via presenter
     }
 }
@@ -32,7 +28,7 @@ protocol {{ module_info.name }}Usecase {
 protocol {{ module_info.name }}Presentation {
     var state: CurrentValueSubject<{{ module_info.name }}.State, Never> { get }
 
-    func dispatch(_ message: {{ module_info.name }}.Message)
+    func dispatch(_ event: {{ module_info.name }}.Event)
 }
 
 protocol {{ module_info.name }}View: UIViewController {
