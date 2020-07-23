@@ -4,7 +4,7 @@ import Foundation
 import Combine
 
 final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation {
-    var state: CurrentValueSubject<{{ module_info.name }}.State, Never> = .init(.init())
+    var state: CurrentValueSubject<{{ module_info.name }}.State, Never>
 
     private let context: {{ module_info.name }}.Context
     private let interactor: {{ module_info.name }}Usecase
@@ -16,6 +16,7 @@ final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation 
         self.context = context
         self.interactor = interactor
         self.wireframeClosure = wireframeClosure
+        state = .init(.init())
     }
 
     func dispatch(_ event: {{ module_info.name }}.Event) {
