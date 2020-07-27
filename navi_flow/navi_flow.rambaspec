@@ -1,0 +1,11 @@
+# Template information section
+name: navi_flow
+summary: FlowController with NavigationController file generator for my iOS architecture
+author: Hiroya Hinomori
+version: 1.0.0
+license: MIT
+
+# The declarations for code files
+code_files:
+# Flow
+- {name: FlowController.swift, path: Code/flowcontroller.swift.liquid}
