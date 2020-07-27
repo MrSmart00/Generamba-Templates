@@ -19,4 +19,3 @@ code_files:
 
 # Scene
 - {name: .swift, path: Code/scene.swift.liquid}
-- {name: _SceneAssembler.extension.swift, path: Code/sceneassembler.swift.liquid}
