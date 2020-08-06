@@ -3,8 +3,8 @@
 import Foundation
 import Combine
 
-final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation {
-    var state: CurrentValueSubject<{{ module_info.name }}.State, Never>
+public final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation {
+    public var state: CurrentValueSubject<{{ module_info.name }}.State, Never>
 
     private let context: {{ module_info.name }}.Context
     private let interactor: {{ module_info.name }}Usecase
@@ -12,14 +12,14 @@ final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation 
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(context: {{ module_info.name }}.Context, interactor: {{ module_info.name }}Usecase, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) {
+    public init(context: {{ module_info.name }}.Context, interactor: {{ module_info.name }}Usecase, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) {
         self.context = context
         self.interactor = interactor
         self.wireframeClosure = wireframeClosure
         state = .init(.init())
     }
 
-    func dispatch(_ event: {{ module_info.name }}.Event) {
+    public func dispatch(_ event: {{ module_info.name }}.Event) {
         // TODO: Impl with combine
     }
 }

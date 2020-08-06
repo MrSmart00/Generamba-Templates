@@ -5,35 +5,35 @@ import Combine
 import Common
 import Core
 
-enum {{ module_info.name }} {
-    struct Context {
+public enum {{ module_info.name }} {
+    public struct Context {
         // TODO: Add properties for Presenter initialization
     }
 
-    enum Wireframe {
+    public enum Wireframe {
         // TODO: Add trigger for view transition
     }
 
-    struct State {
+    public struct State {
         // TODO: Add property for view layouts
     }
 
-    enum Event {
+    public enum Event {
         // TODO: Add view events for dispatch via presenter
     }
 }
 
-protocol {{ module_info.name }}Usecase {
+public protocol {{ module_info.name }}Usecase {
     // TODO: Add function for data fetch from Server
 }
 
-protocol {{ module_info.name }}Presentation {
+public protocol {{ module_info.name }}Presentation {
     var state: CurrentValueSubject<{{ module_info.name }}.State, Never> { get }
 
     func dispatch(_ event: {{ module_info.name }}.Event)
 }
 
-protocol {{ module_info.name }}View: UIViewController {
+public protocol {{ module_info.name }}View: UIViewController {
 
 }
 
