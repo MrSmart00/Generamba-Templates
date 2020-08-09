@@ -3,7 +3,7 @@
 import UIKit
 import Core
 
-class {{ module_info.name }}FlowController: NavigationFlowController {
+public class {{ module_info.name }}FlowController: NavigationFlowController {
     private let environmentClosure: () -> Environment
     private let flowAssembler: () -> FlowAssemblerProtocol
 
@@ -12,14 +12,14 @@ class {{ module_info.name }}FlowController: NavigationFlowController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(environmentClosure: @escaping () -> Environment, flowAssembler: @escaping () -> FlowAssemblerProtocol) {
+    public init(environmentClosure: @escaping () -> Environment, flowAssembler: @escaping () -> FlowAssemblerProtocol) {
         self.environmentClosure = environmentClosure
         self.flowAssembler = flowAssembler
 
         super.init(nibName: nil, bundle: nil)
     }
 
-    override func start() {
+    public override func start() {
 /*
         let controller = SceneAssembler.home(
             context: .init(),

@@ -8,6 +8,7 @@ import Core
 public enum {{ module_info.name }} {
     public struct Context {
         // TODO: Add properties for Presenter initialization
+        public init() { }
     }
 
     public enum Wireframe {
@@ -16,6 +17,7 @@ public enum {{ module_info.name }} {
 
     public struct State {
         // TODO: Add property for view layouts
+        public init() { }
     }
 
     public enum Event {
@@ -37,9 +39,9 @@ public protocol {{ module_info.name }}View: UIViewController {
 
 }
 
-extension SceneAssembler {
+public extension SceneAssembler {
 
-    static func {{ module_info.name | downcase }}(context: {{ module_info.name }}.Context, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) -> (Environment) -> {{ module_info.name }}View {
+    public static func {{ module_info.name | downcase }}(context: {{ module_info.name }}.Context, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) -> (Environment) -> {{ module_info.name }}View {
         return { environment in
             let presenter = {{ module_info.name }}Presenter(context: context, interactor: {{ module_info.name }}Interactor(), wireframeClosure: wireframeClosure)
             return Storyboard<{{ module_info.name }}ViewController>(name: "{{ module_info.name }}").instantiate(with: .init(presenter: presenter))
