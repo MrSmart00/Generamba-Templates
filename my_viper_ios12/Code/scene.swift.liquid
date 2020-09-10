@@ -1,0 +1,51 @@
+{% include 'header' %}
+
+import UIKit
+import Common
+import Core
+import RxRelay
+
+public enum {{ module_info.name }} {
+    public struct Context {
+        // TODO: Add properties for Presenter initialization
+        public init() { }
+    }
+
+    public enum Wireframe {
+        // TODO: Add trigger for view transition
+    }
+
+    public struct State {
+        // TODO: Add property for view layouts
+        public init() { }
+    }
+
+    public enum Event {
+        // TODO: Add view events for dispatch via presenter
+    }
+}
+
+public protocol {{ module_info.name }}Usecase {
+    // TODO: Add function for data fetch from Server
+}
+
+public protocol {{ module_info.name }}Presentation {
+    var state: PublishRelay<{{ module_info.name }}.State> { get }
+
+    func dispatch(_ event: {{ module_info.name }}.Event)
+}
+
+public protocol {{ module_info.name }}View: UIViewController {
+
+}
+
+public extension SceneAssembler {
+
+    static func {{ module_info.name | downcase }}(context: {{ module_info.name }}.Context, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) -> (Environment) -> {{ module_info.name }}View {
+        { environment in
+            let presenter = {{ module_info.name }}Presenter(context: context, interactor: {{ module_info.name }}Interactor(), wireframeClosure: wireframeClosure)
+            return Storyboard<{{ module_info.name }}ViewController>(name: "{{ module_info.name }}").instantiate(with: .init(presenter: presenter))
+        }
+    }
+
+}

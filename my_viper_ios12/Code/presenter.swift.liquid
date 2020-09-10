@@ -1,0 +1,26 @@
+{% include 'header' %}
+
+import Foundation
+import RxSwift
+import RxRelay
+
+public final class {{ module_info.name }}Presenter: {{ module_info.name }}Presentation {
+    public var state: PublishRelay<{{ module_info.name }}.State>
+
+    private let context: {{ module_info.name }}.Context
+    private let interactor: {{ module_info.name }}Usecase
+    private let wireframeClosure: ({{ module_info.name }}.Wireframe) -> Void
+
+    private var disposeBag = DisposeBag()
+
+    public init(context: {{ module_info.name }}.Context, interactor: {{ module_info.name }}Usecase, wireframeClosure: @escaping ({{ module_info.name }}.Wireframe) -> Void) {
+        self.context = context
+        self.interactor = interactor
+        self.wireframeClosure = wireframeClosure
+        state = .init()
+    }
+
+    public func dispatch(_ event: {{ module_info.name }}.Event) {
+        // TODO: Impl with combine
+    }
+}
