@@ -30,7 +30,7 @@ public protocol {{ module_info.name }}Usecase {
 }
 
 public protocol {{ module_info.name }}Presentation {
-    var state: CurrentValueSubject<{{ module_info.name }}.State, Never> { get }
+    var state: PassthroughSubject<{{ module_info.name }}.State, Never> { get }
 
     func dispatch(_ event: {{ module_info.name }}.Event)
 }
