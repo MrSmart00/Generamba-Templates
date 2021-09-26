@@ -3,6 +3,7 @@
 import UIKit
 import Core
 import Common
+import Domain
 
 public class {{ module_info.name }}FlowController: FlowController {
     private let environmentClosure: () -> Environment
@@ -20,7 +21,7 @@ public class {{ module_info.name }}FlowController: FlowController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    public override func start() {
+    public override func start(completion: (() -> Void)? = nil, failure: ((SceneError) -> Void)? = nil) {
 /*
         let controller = SceneAssembler.splash(
             context: .init(),
